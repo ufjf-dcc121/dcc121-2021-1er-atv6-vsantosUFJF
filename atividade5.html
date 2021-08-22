@@ -38,30 +38,6 @@
 <body>
 
     <table border = '1'>
-        <thead>
-            <tr>
-                <th id = "heroi">@</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
         <tbody>
             <tr>
                 <td class="parede"></td>
@@ -267,7 +243,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td id = "heroi">@</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -453,6 +429,50 @@
                 <td></td>
                 <td></td>
                 <td class="tesouros parede">TD</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -462,7 +482,51 @@
         </tbody>
     </table>
 
-    <script></script>
+    <script>
+
+        var celulas = document.querySelectorAll("td");
+
+        for(let i=0; i<celulas.length; i++)
+        {
+            if(!celulas[i].className)
+            {
+                celulas[i].classList.add("parede");
+            }
+             
+            celulas[i].addEventListener("click" , tdClick)
+             
+        }
+
+        function tdClick(event)
+        {
+            if(this.className == "parede")
+            {
+                this.classList.remove("parede");
+                console.log("A célula não possui nenhuma classe.")
+            }
+            else if(!this.className)
+            {
+                this.classList.add("orcs");
+                this.innerHTML = "O";
+                console.log("A classe da célula é orcs.")
+            }
+            else if(this.className == "orcs")
+            {
+                this.classList.remove("orcs");
+                this.classList.add("tesouro");
+                this.innerHTML = "TD";
+                console.log("A classe da célula é tesouro.")
+            }
+            else if(this.className == "tesouro")
+            {
+                this.classList.remove("orcs");
+                this.classList.add("parede");
+                console.log("A classe da célula é parede.")
+            }
+
+        }
+      
+    </script>
 </body>
 
 </html>
