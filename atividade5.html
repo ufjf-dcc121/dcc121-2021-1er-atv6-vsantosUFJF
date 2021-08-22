@@ -496,8 +496,15 @@
 
         function tdClick(event)
         {
-            console.log("A classe da célula é: " + this.className + ".")
-
+            if(!this.className)
+            {
+                console.log("A célula não possui nenhuma classe.")
+            }
+            else
+            {
+                console.log("A classe da célula é: " + this.className + ".")
+            }
+          
             if(this.className == "parede")
             {
                 this.classList.remove("parede");
