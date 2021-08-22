@@ -19,9 +19,6 @@
 
     .tesouros{
         color: goldenrod;
-        overflow: hidden;
-        white-space: nowrap;
-        text-indent: 100%;
     }
 
     .parede{
@@ -499,6 +496,8 @@
 
         function tdClick(event)
         {
+            console.log("A classe da célula é: " + this.className + ".")
+
             if(this.className == "parede")
             {
                 this.classList.remove("parede");
@@ -513,17 +512,17 @@
             else if(this.className == "orcs")
             {
                 this.classList.remove("orcs");
-                this.classList.add("tesouro");
+                this.classList.add("tesouros");
                 this.innerHTML = "TD";
-                console.log("A classe da célula é tesouro.")
+                console.log("A classe da célula é tesouros.")
             }
-            else if(this.className == "tesouro")
+            else if(this.className == "tesouros")
             {
                 this.classList.remove("orcs");
                 this.classList.add("parede");
                 console.log("A classe da célula é parede.")
             }
-
+        
         }
       
     </script>
