@@ -485,7 +485,7 @@
 
         for(let i=0; i<celulas.length; i++)
         {
-            if(!celulas[i].className)
+            if(celulas[i].classList.length === 0)
             {
                 celulas[i].classList.add("parede");
             }
@@ -496,7 +496,7 @@
 
         function tdClick(event)
         {
-            if(!this.className)
+            if(this.classList.length === 0)
             {
                 console.log("A célula não possui nenhuma classe.")
             }
@@ -505,27 +505,27 @@
                 console.log("A classe da célula é: " + this.className + ".")
             }
           
-            if(this.className == "parede")
+            if(this.classList.contains("parede"))
             {
                 this.classList.remove("parede");
                 console.log("A célula não possui nenhuma classe.")
             }
-            else if(!this.className)
+            else if(this.classList.length === 0)
             {
                 this.classList.add("orcs");
                 this.innerHTML = "O";
                 console.log("A classe da célula é orcs.")
             }
-            else if(this.className == "orcs")
+            else if(this.classList.contains("orcs"))
             {
                 this.classList.remove("orcs");
                 this.classList.add("tesouros");
                 this.innerHTML = "TD";
                 console.log("A classe da célula é tesouros.")
             }
-            else if(this.className == "tesouros")
+            else if(this.classList.contains("tesouros"))
             {
-                this.classList.remove("orcs");
+                this.classList.remove("tesouros");
                 this.classList.add("parede");
                 console.log("A classe da célula é parede.")
             }
